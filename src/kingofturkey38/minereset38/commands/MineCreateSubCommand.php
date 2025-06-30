@@ -56,6 +56,7 @@ class MineCreateSubCommand extends BaseSubCommand{
 			$p->sendMessage(Main::getPrefix() . "Break a block to select the first position");
 			if(($pos1 = yield from $this->getMinePosition($p)) !== false){
 				$p->sendMessage(Main::getPrefix() . "Break a block to select the second position");
+				yield from Main::getInstance()->getStd()->sleep(20); // Wait a little longer... oño
 				if(($pos2 = yield from $this->getMinePosition($p)) !== false){
 					if(!$p->isOnline()) return;
 
